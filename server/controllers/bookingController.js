@@ -43,7 +43,7 @@ export const createBooking = async (req, res) => {
         showData.markModified("occupiedSeats");
         await showData.save();
 
-        res.json({success: true, message: "Booking created successfully"});
+        res.json({success: true, message: "Booked successfully"});
     } catch (error) {
         console.error(error.message);
         res.json({success: false, message: error.message});

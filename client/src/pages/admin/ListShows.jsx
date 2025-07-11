@@ -16,7 +16,7 @@ function ListShows() {
     try {
       setShows([{
         movie: dummyShowsData[0],
-        showDateTime: "2025-07-70T14:00:00Z",
+        showDateTime: "2025-07-70T14:00:000Z",
         showPrice: 10,
         occupiedSeats: {
           A1: "user_1",
