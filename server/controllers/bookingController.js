@@ -58,7 +58,7 @@ export const createBooking = async (req, res) => {
             quantity: 1
         }]
 
-        const session = stripeInstance.checkout.session.create({
+        const session = await stripeInstance.checkout.sessions.create({
             success_url: `${origin}/loading/my-bookings`,
             cancel_url: `${origin}/my-bookings`,
             line_items: line_items,
@@ -66,11 +66,19 @@ export const createBooking = async (req, res) => {
             metadata: {
                 bookingId: booking._id.toString()
             },
-            expires_at: Math.floor(Date.now()/1000) + 10 * 60
+            expires_at: Math.floor(Date.now()/1000) + 30 * 60
         })
 
         booking.paymentLink = session.url;
         await booking.save()
+
+        // Run Inngest Sheduler Function to check payment status after 10 minutes
+        await inngest.send({
+            name: "app/checkpayment",
+            data: {
+                bookingId: booking._id.toString()
+            }
+        })
 
         res.json({success: true, url: session.url});
     } catch (error) {
