@@ -33,7 +33,7 @@ const syncUserDeletion = inngest.createFunction(
   }
 );
 
-
+// Inngest function to update user data from database
 const syncUserUpdation = inngest.createFunction(
   {id: 'update-user-from-clerk'},
   { event: 'clerk/user.updated' },
@@ -50,6 +50,9 @@ const syncUserUpdation = inngest.createFunction(
     await User.findByIdAndUpdate(id, userData)
   }
 );
+
+// Inngest function to cancel booking and release seats of show if payment is not made
+
 
 
 export const functions = [
