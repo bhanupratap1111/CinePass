@@ -8,6 +8,7 @@ import MovieDetails from './pages/MovieDetails'
 import MyBookings from './pages/MyBookings'
 import Favorite from './pages/Favorite'
 import SeatLayout from './pages/SeatLayout'
+import Releases from './pages/Releases' // Import the new Releases component
 import {Toaster} from 'react-hot-toast'
 import Layout from './pages/admin/Layout'
 import Dashboard from './pages/admin/Dashboard'
@@ -34,6 +35,7 @@ function App() {
         <Route path="/my-bookings" element={<MyBookings />} />
         <Route path="/loading/:nextUrl" element={<Loading />} />
         <Route path="/favorite" element={<Favorite />} />
+        <Route path="/releases" element={<Releases />} />
 
         <Route path='/admin/*' element={user ? <Layout /> : (
           <div className='min-h-screen flex justify-center items-center'>

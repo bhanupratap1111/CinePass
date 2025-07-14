@@ -20,6 +20,23 @@ export const getNowPlayingMovies = async (req, res) => {
 }
 
 
+export const newReleases = async (req, res) => {
+    try {
+      const {data} = await axios.get('https://api.themoviedb.org/3/movie/upcoming', {
+          headers: {
+              Authorization: `Bearer ${process.env.TMDB_API_KEY}`
+          }
+      });
+  
+      const movies = data.results;    
+      res.json({success: true, movies: movies});
+    } catch (error) {
+      console.error('Error fetching new releases:', error);
+      res.json({success: false, message: error.message});
+    }
+  }
+
+
 export const addShow = async (req, res) => {
   try {
     const {movieId, showsInput, showPrice} = req.body;

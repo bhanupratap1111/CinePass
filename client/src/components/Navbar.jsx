@@ -26,8 +26,8 @@ function Navbar() {
         />
         <Link onClick={() => {scrollTo(0,0); setIsOpen(false)}} to="/">Home</Link>
         <Link onClick={() => {scrollTo(0,0); setIsOpen(false)}} to="/movies">Movies</Link>
-        <Link onClick={() => {scrollTo(0,0); setIsOpen(false)}} to="/">Theaters</Link>
-        <Link onClick={() => {scrollTo(0,0); setIsOpen(false)}} to="/">Releases</Link>
+        <Link onClick={() => {scrollTo(0,0); setIsOpen(false)}} to="/my-bookings">Bookings</Link>
+        <Link onClick={() => {scrollTo(0,0); setIsOpen(false)}} to="/releases">Releases</Link>
         <Link onClick={() => {scrollTo(0,0); setIsOpen(false)}} to="/favorite">Favorites</Link>
       </div>
 

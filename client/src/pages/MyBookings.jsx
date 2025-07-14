@@ -83,7 +83,7 @@ function MyBookings() {
         </div>
       ))}      
     </div>
-  ) : <Loading />
+  ) : <div className="relative px-6 md:px-16 lg:px-40 pt-30 md:pt-40 min-h-[25vh] text-center mt-20 text-red-400 text-xl">No bookings have been made.</div>
 }
 
 export default MyBookings

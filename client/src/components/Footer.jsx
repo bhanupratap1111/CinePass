@@ -11,8 +11,8 @@ function Footer() {
                       Lights, camera, action! 🎬 Book your tickets now for an unforgettable movie experience. Catch the latest films with just a few clicks. Stay tuned for more blockbuster releases!
                   </p>
                   <div className="flex items-center gap-2 mt-4">
-                      <img src={assets.googlePlay} alt="google play" className="h-9 w-auto" />
-                      <img src={assets.appStore} alt="app store" className="h-9 w-auto" />
+                      <img src={assets.googlePlay} alt="google play" className="h-9 w-auto cursor-pointer" />
+                      <img src={assets.appStore} alt="app store" className="h-9 w-auto cursor-pointer" />
                   </div>
               </div>
               <div className="flex-1 flex items-start md:justify-end gap-20 md:gap-40">
@@ -27,7 +27,7 @@ function Footer() {
                   </div>
                   <div>
                       <h2 className="font-semibold mb-5">Get in touch</h2>
-                      <div className="text-sm space-y-2">
+                      <div className="text-sm space-y-2 cursor-pointer">
                           <p>+1-234-567-890</p>
                           <p>contact@example.com</p>
                       </div>
