@@ -3,11 +3,14 @@ import { Link, useNavigate } from 'react-router-dom'
 import {assets} from '../assets/assets'
 import { SearchIcon, MenuIcon, XIcon, TicketPlus } from 'lucide-react'
 import { useUser, useClerk, UserButton } from '@clerk/clerk-react'
+import { useAppContext } from '../context/AppContext'
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const {user} = useUser()
   const{openSignIn} = useClerk()
+
+  const {isAdmin} = useAppContext();
 
   const navigate = useNavigate()
   return (
@@ -29,6 +32,9 @@ function Navbar() {
         <Link onClick={() => {scrollTo(0,0); setIsOpen(false)}} to="/my-bookings">Bookings</Link>
         <Link onClick={() => {scrollTo(0,0); setIsOpen(false)}} to="/releases">Releases</Link>
         <Link onClick={() => {scrollTo(0,0); setIsOpen(false)}} to="/favorite">Favorites</Link>
+        {isAdmin && ( // <--- This checks if the user is an admin
+            <Link onClick={() => {scrollTo(0,0); setIsOpen(false)}} to="/admin">Admin</Link>
+        )}
       </div>
 
       <div className='flex items-center gap-8'>
